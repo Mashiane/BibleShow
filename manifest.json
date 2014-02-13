@@ -1,0 +1,12 @@
+{ "manifest_version": 2,
+  "name": "Bible.Show",
+  "version": "1.0.1",
+  "display_in_launcher": true,
+  "display_in_new_tab_page": true,
+  "short_name": "Bible.Show",
+  "offline_enabled": true,
+  "description": "Bible.Show, building your relationship with God Jehovah!",
+  "icons": { "16": "/16.png",
+            "128": "/128.png" },
+  "author": "Copyright Anele Mbanga",
+  "app": {"background": {"scripts": ["background.js"]}}}

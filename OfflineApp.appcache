@@ -1,0 +1,35 @@
+CACHE MANIFEST
+bibleshow.js
+chart.png
+view.png
+delete.png
+edit.png
+16.png
+57.png
+114.png
+128.png
+144.png
+196.png
+32.png
+CACHE:
+nsb/fastclick.js
+nsb/jquery.mobile.js
+nsb/nsbstyle.css
+nsb/jquery.mobile.css
+nsb/jquery.js
+nsb/complexfunctions.js
+nsb/iscroll.js
+icon.png
+nsb/images/ajax-loader.gif
+512.png
+nsb/css/style.css
+nsb/library/add2home.css
+nsb/library/add2home.js
+nsb/hfunc.js
+
+NETWORK:
+*
+
+# buildtime: 1392252850.7
+
+select.css

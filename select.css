@@ -1,0 +1,14 @@
+.select select{-webkit-border-radius:5px;color:#000;font-weight:normal;font-size:14px}
+.select select{border-radius: 5px 5px 5px 5px; line-height: 14px;}
+.select select{-moz-border-radius:5px;}
+.select select{border: 1px solid #ccc;}
+.select select{text-overflow: ellipsis;white-space: nowrap;}
+
+.bigfield input{font-weight:normal;font-size:14px}
+.smallfield input{font-weight:normal;font-size:14px}
+.ui-header .ui-title, .ui-footer .ui-title {margin-right: 0 !important; margin-left: 0 !important;}
+
+#NSB_Progress {
+height:45px;
+width:400px;
+}
