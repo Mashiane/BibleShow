@@ -1,4 +1,4 @@
 
-frmRestore.innerHTML=[  NSB.HeaderBar_jqm14('restoreT', 'Restore', '', 'arrow-l', 'left', '', 'check', 'right', ' style="" class=" "'),
-  "<textarea id='txtRestore' class='ui-mini  ' name='' style='display:block; margin-top:0px; text-align:left; font-size:14px;; font-family:helvetica; font-style:; font-weight:; color:; background-color:white;-webkit-overflow-scrolling:touch; max-height:185px; '  autocorrect='off'  autocomplete='off'  autocapitalize='off' data-autogrow=false readonly=\'readonly\' placeholder='Replace this text with the copied text from the &apos;Backup&apos; E-Mail.&quot;'></textarea>",
+frmSettings.innerHTML=[  NSB.List_jqm14('lstWhatToDo1', 'ul', 'none', '', 'b', '', '', 'N,N,N', 'style=', 'class=" "', '100%', true, false, '', 'arrow-r', 'false', '', 'false', 'false'),
+  NSB.HeaderBar_jqm14('hBar1', 'Settings', '', 'home', 'left', '', 'false', 'right', ' style="" class=" "'),
   ].join('');
