@@ -1,9 +1,5 @@
 CACHE MANIFEST
 bibleshow.js
-chart.png
-view.png
-delete.png
-edit.png
 16.png
 57.png
 114.png
@@ -30,6 +26,6 @@ nsb/hfunc.js
 NETWORK:
 *
 
-# buildtime: 1392257014.25
+# buildtime: 1392394928.04
 
 select.css
