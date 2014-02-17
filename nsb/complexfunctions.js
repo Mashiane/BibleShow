@@ -1411,16 +1411,15 @@ NSB.PopUp_jqm_init= function(el,items){
 }
 
 NSB.ToolTip_jqm = function(id, popupmsg, datatransition, theme, message, style, closeiconposition, icon){
-  var s;
   if(theme != '') theme=" data-theme="+theme;
-  s = "<a id="+id+" href='#"+id+"_popupInfo' data-rel='popup' data-role='button' class='ui-icon-alt' data-inline='true' data-transition='" +datatransition+ "' data-icon="+icon+theme+" data-iconpos='notext' title='"+message+"'>"+message+"</a></p>" ;
+  var s = "<a id="+id+" href='#"+id+"_popupInfo' style='margin:0px;' data-rel='popup' data-role='button' class='ui-icon-alt' data-inline='true' data-transition='" +datatransition+ "' data-icon="+icon+theme+" data-iconpos='notext' title='"+message+"'>"+message+"</a></p>" ;
   s +="<div data-role='popup' id='"+id+"_popupInfo' class='ui-content'"+theme+" ' style='"+style+"'>";
   if (closeiconposition=="")
     s +=" <a href='#' data-rel='back' data-role='button'"+theme+"' data-icon='delete' data-iconpos='notext'>Close</a>";
   else
     s +=" <a href='#' data-rel='back' data-role='button' data-theme='"+theme+"'data-icon='delete' data-iconpos='notext' class='"+closeiconposition+"'>Close</a>";
   s += popupmsg+ "</div>" ;
-  // console.log(s);
+  //console.log(s);
   return s
 }
 
@@ -1499,7 +1498,7 @@ NSB.NavBar_jqm14 = function(id, items, fontSize, fontFamily, fontStyle, fontWeig
   return s;
 }
 
-NSB.PopUp_jqm14 = function(id, items, text, datatransition, theme, dataTheme, mini, corners, arrows, icon, iconPos, popup){
+NSB.PopUp_jqm14 = function(id, items, text, datatransition, theme, dataTheme, mini, corners, icon, iconPos, popup){
 	var i,s, arrItems, menu;
 	arrItems=split(items, ",");
 	if(items==''){arrItems=[]};
@@ -1508,7 +1507,7 @@ NSB.PopUp_jqm14 = function(id, items, text, datatransition, theme, dataTheme, mi
 	s+="class='ui-btn ui-btn-inline " + mini + " " + corners;
     if(theme!="") s+=" data-theme="+theme+"";
     if(icon!='') s+= " ui-icon-" + icon + " ui-btn-icon-" + iconPos; 
-	s+="' data-arrow="+arrows+">" + text +"</a>\n";
+	s+="'>" + text +"</a>\n";
 	s+="<div data-role='popup' id='"+menu+"' data-theme='" + dataTheme + "'>\n";
 	if(items!="") {
         s+="<ul data-role='listview' data-inset='true' style='min-width:210px;'>\n";
@@ -1518,13 +1517,14 @@ NSB.PopUp_jqm14 = function(id, items, text, datatransition, theme, dataTheme, mi
 	    s+=    "</ul></div>"}
 	else {
 	    s+="<p>" + popup + "</div>"}
-	//console.log(s);
+	console.log(s);
 	return s;
 }
 
 NSB.List_jqm14 = function(id, showNumbers, imageStyle, dataTheme, dividerTheme, itemList, imageList, dividerList, html, properties, width, scrolling, readonly, corners, icon, filter, filterPlaceholder, filterReveal,autoDividers){
   var i,s='';
   if(dataTheme!='') dataTheme = " data-theme=" + dataTheme;
+  if(dividerTheme!='') dividerTheme = " divider-theme=" + dividerTheme;
   filterPlaceholder = ((filterPlaceholder!='') && (filter=='true')) ? filterPlaceholder = " data-filter-placeholder='" + filterPlaceholder + "'": "";
   filter = (filter=='true') ? " data-filter=true" : '';
   filterReveal = (filterReveal=='true') ? " data-filter-reveal=true" : '';
@@ -1533,7 +1533,7 @@ NSB.List_jqm14 = function(id, showNumbers, imageStyle, dataTheme, dividerTheme, 
   s+="<div id='" + id + "'>\n";
   s+="<" + showNumbers + " id="+id+"_list data-role='listview' class='ui-listview' data-corners='"+corners+"' data-icon="+icon;
   s+=filter+filterReveal+filterPlaceholder+autoDividers;
-  s+=" data-inset=true"+dataTheme+" data-divider-theme="+dividerTheme+" imageStyle='"+imageStyle+"'" + enquote(html) + ">\n";
+  s+=" data-inset=true"+dataTheme+dividerTheme+" nsb-imageStyle='"+imageStyle+"'" + enquote(html) + ">\n";
   var arrItems=split(itemList,",");
   var arrImages=split(imageList,",");
   var arrDividers=split(dividerList,",");
@@ -1546,7 +1546,7 @@ NSB.List_jqm14 = function(id, showNumbers, imageStyle, dataTheme, dividerTheme, 
       	s+=">";
       	s+="<a id='" + (id+"_"+i) + "' nsbclick='"+id+"' nsbvalue='"+i+"' href='#'>"}
       else s+=">"};
-    if ((i<arrImages.length) & (arrImages[i]!="")) 
+    if ((i<arrImages.length) & (arrImages[i]!="") & (imageStyle!='') )
 	  {s+="<img src='" + arrImages[i] + "' class='"+imageStyle+"'>"};
     s+=Trim(arrItems[i]);
     if (!((i<arrDividers.length) & (arrDividers[i]=="Y")))
@@ -1555,7 +1555,7 @@ NSB.List_jqm14 = function(id, showNumbers, imageStyle, dataTheme, dividerTheme, 
   s+="</" + showNumbers + ">";
   s+="\n</div>\n";
   if(scrolling)s+="</div>\n";
-  //console.log(s);
+  console.log(s);
   return s;
 }
 
@@ -1601,10 +1601,10 @@ NSB.List_jqm_init14= function(id, items, scrolling, width, readonly){
         if(theme) newLi.setAttribute("data-theme",theme);
         newLi.setAttribute("onclick", (id + ".onclick(" + i + ")"));
         s="<a id='" + (id+"_"+i) + "' href='#'>";	
-        if (imgSrc) s+=" <img src='" + imgSrc + "' class='" + NSB.$(id+'_list').getAttribute("imageStyle") + "'>";
-        s+=itemName;
-        newLi.innerHTML+=s + "</a>\n";
-        //console.log(s);
+        if (imgSrc) s+=" <img src='" + imgSrc + "' class='" + NSB.$(id+'_list').getAttribute("nsb-imageStyle") + "'>";
+        s+=Trim(itemName) + "</a>\n";
+        newLi.innerHTML+=s;
+        console.log(s);
       } else {
         newLi.innerHTML+=itemName}
     }
