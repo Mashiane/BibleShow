@@ -7,6 +7,7 @@ bibleshow.js
 144.png
 196.png
 32.png
+80.png
 CACHE:
 nsb/fastclick.js
 nsb/jquery.mobile.js
@@ -18,7 +19,6 @@ nsb/iscroll.js
 icon.png
 nsb/images/ajax-loader.gif
 512.png
-nsb/css/style.css
 nsb/library/add2home.css
 nsb/library/add2home.js
 nsb/hfunc.js
@@ -26,6 +26,6 @@ nsb/hfunc.js
 NETWORK:
 *
 
-# buildtime: 1392718408.46
+# buildtime: 1392727655.05
 
 select.css

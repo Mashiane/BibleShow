@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <title>Bible.Show</title>
 <meta name="generator" content="NSB/AppStudio 4.0.0.0b7$bhnw" />
-<meta name='date' content='2014-02-18 12:13:29.173000' />
-<meta name='version' content='1.0.15' />
+<meta name='date' content='2014-02-18 14:47:37.167000' />
+<meta name='version' content='1.0.16' />
 <meta name='viewport' content='width=device-width, height=device-height, initial-scale=1, minimal-ui', >
 <meta name='apple-mobile-web-app-capable' content='YES' />
 <meta name='mobile-web-app-capable' content='yes' />
@@ -23,7 +23,6 @@
 <script src="nsb/iscroll.js"></script>
 <script src="nsb/jquery.mobile.js"></script>
 <link href="nsb/jquery.mobile.css" rel="stylesheet">
-<link href="nsb/css/style.css" rel="stylesheet">
 
 <script src="13.js"></script>
 <link href='nsb/library/add2home.css' rel='stylesheet'>
@@ -33,44 +32,37 @@
 <script src='nsb/library/add2home.js'></script>
 
 <style type="text/css">
-#lstWhatToDo_scroller {position: absolute; overflow:hidden; width:100%; height:420px; left:0px; top:42px;}
+#lstWhatToDo_scroller {position: absolute; overflow:hidden; width:100%; height:420px; left:0px; top:0px;}
 #lstWhatToDo {position:absolute; left:0px; top:0px; width:100%; height:auto }
 
 #hBar {position: absolute; width:100%; height:40px; left:0px; top:0px;}
-#booksL_scroller {position: absolute; overflow:hidden; width:35.9375%; height:300px; left:0px; top:42px;}
+#biblesL_scroller {position: absolute; overflow:hidden; width:100%; height:300px; left:0px; top:0px;}
+#biblesL {position:absolute; left:0px; top:0px; width:100%; height:auto }
+
+#biblesT {position: absolute; width:100%; height:40px; left:0px; top:0px;}
+#booksL_scroller {position: absolute; overflow:hidden; width:35.9375%; height:300px; left:0px; top:0px;}
 #booksL {position:absolute; left:0px; top:0px; width:100%; height:auto }
 
 #booksT {position: absolute; width:100%; height:40px; left:0px; top:0px;}
-#chaptersL_scroller {position: absolute; overflow:hidden; width:34.375%; height:300px; left:118px; top:42px;}
+#chaptersL_scroller {position: absolute; overflow:hidden; width:34.375%; height:300px; left:118px; top:0px;}
 #chaptersL {position:absolute; left:0px; top:0px; width:100%; height:auto }
 
-#versesL_scroller {position: absolute; overflow:hidden; width:27.5%; height:300px; left:230px; top:42px;}
+#versesL_scroller {position: absolute; overflow:hidden; width:27.5%; height:300px; left:230px; top:0px;}
 #versesL {position:absolute; left:0px; top:0px; width:100%; height:auto }
 
-#promisesL_scroller {position: absolute; overflow:hidden; width:100%; height:300px; left:0px; top:42px;}
+#promisesL_scroller {position: absolute; overflow:hidden; width:60%; height:300px; left:0px; top:0px;}
 #promisesL {position:absolute; left:0px; top:0px; width:100%; height:auto }
 
 #promisesT {position: absolute; width:100%; height:40px; left:0px; top:0px;}
-#promiseL_scroller {position: absolute; overflow:hidden; width:100%; height:300px; left:0px; top:42px;}
+#promiseL_scroller {position: absolute; overflow:hidden; width:40%; height:300px; left:192px; top:0px;}
 #promiseL {position:absolute; left:0px; top:0px; width:100%; height:auto }
 
-#promiseT {position: absolute; width:100%; height:40px; left:0px; top:0px;}
 #versesT {position: absolute; width:100%; height:40px; left:0px; top:0px;}
 #txtVerses {position:absolute; left:6px; right:auto; top:70px; bottom:auto; height:185px; width:95%}
 #Label12 {position:absolute; left:0px; right:auto; top:48px; bottom:auto; height:20px; width:95%}
 #Label13 {position:absolute; left:0px; right:auto; top:400px; bottom:auto; height:20px; width:95%}
 #Line1 {position:absolute; left:0px; right:10px; top:378px; bottom:auto; height:5px; width:100%}
 #hAbout {position: absolute; width:100%; height:40px; left:0px; top:0px;}
-#restoreT {position: absolute; width:100%; height:40px; left:0px; top:0px;}
-#txtRestore {position:absolute; left:5px; right:auto; top:44px; bottom:auto; height:185px; width:95%}
-#lstWhatToDo2_scroller {position: absolute; overflow:hidden; width:100%; height:420px; left:0px; top:42px;}
-#lstWhatToDo2 {position:absolute; left:0px; top:0px; width:100%; height:auto }
-
-#hBar2 {position: absolute; width:100%; height:40px; left:0px; top:0px;}
-#profileM_scroller {position: absolute; overflow:hidden; width:303px; height:10px; left:1px; top:46px}
-#profileM {position:absolute; left:0px; top:0px; width:303px; height:auto;}
-#profileM {left:1px; top:46px;}
-#profileT {position: absolute; width:100%; height:40px; left:0px; top:0px;}
 body * {font-family:helvetica}
 </style>
 </head>
@@ -80,13 +72,13 @@ body * {font-family:helvetica}
 <form id="WhatToDo" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
 <script src="23.js"></script>
 </form>
-<form id="frmBooks" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
+<form id="frmBibles" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
 <script src="25.js"></script>
 </form>
-<form id="frmPromises" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
+<form id="frmBooks" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
 <script src="27.js"></script>
 </form>
-<form id="frmPromise" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
+<form id="frmPromises" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
 <script src="29.js"></script>
 </form>
 <form id="frmVerses" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
@@ -95,17 +87,8 @@ body * {font-family:helvetica}
 <form id="frmAbout" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
 <script src="33.js"></script>
 </form>
-<form id="frmRestore" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
-<script src="35.js"></script>
-</form>
-<form id="frmDatabase" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
-<script src="37.js"></script>
-</form>
-<form id="frmProfile" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
-<script src="39.js"></script>
-</form>
 </div>
-<script src="41.js"></script><link href="select.css"rel="stylesheet"><script src="43.js"></script>
+<script src="35.js"></script><link href="select.css"rel="stylesheet"><script src="37.js"></script>
 <script src="bibleshow.js"></script>
 
 </body>
