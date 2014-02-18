@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <title>Bible.Show</title>
 <meta name="generator" content="NSB/AppStudio 4.0.0.0b7$bhnw" />
-<meta name='date' content='2014-02-18 15:28:32.717000' />
-<meta name='version' content='1.0.19' />
+<meta name='date' content='2014-02-18 22:54:04.173000' />
+<meta name='version' content='1.0.43' />
 <meta name='viewport' content='width=device-width, height=device-height, initial-scale=1, minimal-ui', >
 <meta name='apple-mobile-web-app-capable' content='YES' />
 <meta name='mobile-web-app-capable' content='yes' />
@@ -63,6 +63,10 @@
 #Label13 {position:absolute; left:0px; right:auto; top:400px; bottom:auto; height:20px; width:95%}
 #Line1 {position:absolute; left:0px; right:10px; top:378px; bottom:auto; height:5px; width:100%}
 #hAbout {position: absolute; width:100%; height:40px; left:0px; top:0px;}
+#lstFiles_scroller {position: absolute; overflow:hidden; width:100%; height:32px; left:0px; top:0px;}
+#lstFiles {position:absolute; left:0px; top:0px; width:100%; height:auto }
+#lstFiles {left:0px; top:0px;}
+#hdrFiles {position: absolute; width:100%; height:40px; left:0px; top:0px;}
 body * {font-family:helvetica}
 </style>
 </head>
@@ -87,8 +91,11 @@ body * {font-family:helvetica}
 <form id="frmAbout" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
 <script src="33.js"></script>
 </form>
+<form id="frmFiles" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
+<script src="35.js"></script>
+</form>
 </div>
-<script src="35.js"></script><link href="select.css"rel="stylesheet"><script src="37.js"></script>
+<script src="37.js"></script><link href="select.css"rel="stylesheet"><script src="39.js"></script>
 <script src="bibleshow.js"></script>
 
 </body>
