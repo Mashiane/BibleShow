@@ -360,7 +360,18 @@ function convertDate(dt,convertMonth) {
         if(!dt.match(/\s*[a-z]+\s+\d{1,2},?\s+(\d{2}|\d{4})\s*/i)) {
             dt=dt.replace(/\-/g,'/').replace(/\;/g,'/').replace(/\s+/g,'/').replace(/\./g,'/').replace(/,/g,'/').replace(/\/+/g,'/');
             if (!dt.match(/\d{1,2}\/\d{1,2}\/(\d{2}|\d{4})/)) {
-                return null;
+				//check if time only
+				if (dt.match(/^\s*\d{1,2}:\d{1,2}:\d{1,2}/)) { //match time only
+					__dt__today = new Date();
+					__m=(__dt__today.getMonth()+1);
+					__mon = (__m < 10) ? '0' + __m : __m;
+					__d=__dt__today.getDate();
+					__day = (__d < 10) ? '0' + __d : __d;
+					s__dt__today=__mon+'/'+__day+'/'+__dt__today.getFullYear();
+					dt=s__dt__today+'  '+dt; //add today's date to time entry
+				} else {
+					return null;
+				}
             }
         }
     }

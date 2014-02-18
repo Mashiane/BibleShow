@@ -1477,16 +1477,17 @@ NSB.FooterBar_jqm14 = function(id, items, fontSize, fontFamily, fontStyle, fontW
   return s;
 }
 
-NSB.NavBar_jqm14 = function(id, items, fontSize, fontFamily, fontStyle, fontWeight, Theme, icons, iconPos, active, klass){
+NSB.NavBar_jqm14 = function(id, items, fontSize, fontFamily, fontStyle, fontWeight, theme, icons, iconPos, active, klass){
   var i,s;
   var arrItems=split(items,",");
   var arrIcons=split(icons,",");
+  if(theme!="") theme=" data-theme=theme";
   s="<div id="+id + " data-role=navbar data-iconpos="+iconPos+ " class='" + klass + "'>\n";
   s+="<ul>\n";
   for (i=0; i<arrItems.length; i++) {
     arrItems[i]=Trim(arrItems[i]);
     s+="  <li>\n";
-    s+="    <a id='" + (id+"_"+i) + "' nsbclick='"+id+"' nsbvalue='"+replace(arrItems[i]," ","_")+"' href='#' data-theme="+Theme+" ";
+    s+="    <a id='" + (id+"_"+i) + "' nsbclick='"+id+"' nsbvalue='"+replace(arrItems[i]," ","_")+"' href='#'"+theme+" ";
     if ((i<arrIcons.length) & (arrIcons[i]!="")) s+=" data-icon=" + Trim(arrIcons[i]);
     if (i+1==active) s+=" class='ui-btn-active'";
     s+=">\n";
@@ -1517,14 +1518,14 @@ NSB.PopUp_jqm14 = function(id, items, text, datatransition, theme, dataTheme, mi
 	    s+=    "</ul></div>"}
 	else {
 	    s+="<p>" + popup + "</div>"}
-	console.log(s);
+	//console.log(s);
 	return s;
 }
 
 NSB.List_jqm14 = function(id, showNumbers, imageStyle, dataTheme, dividerTheme, itemList, imageList, dividerList, html, properties, width, scrolling, readonly, corners, icon, filter, filterPlaceholder, filterReveal,autoDividers){
   var i,s='';
   if(dataTheme!='') dataTheme = " data-theme=" + dataTheme;
-  if(dividerTheme!='') dividerTheme = " divider-theme=" + dividerTheme;
+  if(dividerTheme!='') dividerTheme = " data-divider-theme=" + dividerTheme;
   filterPlaceholder = ((filterPlaceholder!='') && (filter=='true')) ? filterPlaceholder = " data-filter-placeholder='" + filterPlaceholder + "'": "";
   filter = (filter=='true') ? " data-filter=true" : '';
   filterReveal = (filterReveal=='true') ? " data-filter-reveal=true" : '';
@@ -1555,7 +1556,7 @@ NSB.List_jqm14 = function(id, showNumbers, imageStyle, dataTheme, dividerTheme, 
   s+="</" + showNumbers + ">";
   s+="\n</div>\n";
   if(scrolling)s+="</div>\n";
-  console.log(s);
+  //console.log(s);
   return s;
 }
 
@@ -1590,11 +1591,10 @@ NSB.List_jqm_init14= function(id, items, scrolling, width, readonly){
   NSB.$(id).addItem=function(itemName,imgSrc,itemNo,divider,theme){
     var s,i,newLi,newSpan,newHref,newImgSrc;
     if (isNull(itemNo)) {
-      i = NSB.$(id).getItemCount();
-      }
+      i = NSB.$(id).getItemCount()}
     else {
-      i = itemNo;
-      }
+      i = itemNo}
+    if (typeof(itemName)!="string") itemName=itemName.toString();
     newLi = document.createElement("li");
     if(divider!=true){
       if(!this.readonly){
@@ -1604,7 +1604,7 @@ NSB.List_jqm_init14= function(id, items, scrolling, width, readonly){
         if (imgSrc) s+=" <img src='" + imgSrc + "' class='" + NSB.$(id+'_list').getAttribute("nsb-imageStyle") + "'>";
         s+=Trim(itemName) + "</a>\n";
         newLi.innerHTML+=s;
-        console.log(s);
+        //console.log(s);
       } else {
         newLi.innerHTML+=itemName}
     }
