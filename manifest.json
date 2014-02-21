@@ -1,6 +1,6 @@
 { "manifest_version": 2,
   "name": "Bible.Show",
-  "version": "1.0.47",
+  "version": "1.0.61",
   "display_in_launcher": true,
   "display_in_new_tab_page": true,
   "short_name": "Bible.Show",
