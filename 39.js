@@ -1,7 +1,7 @@
 function Trial_CreateTable(){var tbls;tbls=new Object();tbls["IMEI"]="text";tbls["Runs"]="integer";CreateTable("Trial",tbls,"IMEI","");CreateTableIndexes("Trial","Runs");}
 function Main(){NSB.WaitCursor(True);var strBible;SaveSetting("onbooks","0");SaveSetting("onpromise","0");strBible=GetSetting("bible");strBible="King James";SaveSetting("bible",strBible);SaveSetting(strBible,"KJ");NSB.MsgBoxStyle="";sqlList=[];dbName="bibleshow.db";dbObj=SqlOpenDatabase(dbName);if(dbObj==0){NSB.MsgBox("Error opening bibleshow database!");}
 sqlList=[];sqlList[0]=["SELECT * FROM Books ORDER BY BookID;",booksH1,booksE1];Sql(dbObj,sqlList);}
-function booksE1(transaction,results){savethefunction_rvar="";NSB.WaitCursor(False);NSB.MsgBox("SQL Error: "+results.code+": "+results.message);return savethefunction_rvar;}
+function booksE1(transaction,results){savethefunction_rvar="";NSB.WaitCursor(False);console.log(results.code+"-"+results.message);return savethefunction_rvar;}
 function booksH1(transaction,results){savethefunction_rvar="";var row,i,sBookID,sBookName,sChapters;var sKey,svalue;for(i=0;i<=results.rows.length-1;i++){row=results.rows.item(i);sBookID=row["BookID"];sBookName=row["BookName"];sChapters=row["Chapters"];sKey="biblebook_"+sBookName;svalue=sBookID+"*"+sChapters;SaveSetting(sKey,svalue);}
 NSB.WaitCursor(False);return savethefunction_rvar;}
 var dbName;var dbObj;var sourceForm;var catFrom,sqlList,rCnt,query,recid,isnew;var DB_REAL="REAL";var DB_INTEGER="INTEGER";var DB_BLOB="BLOB";var DB_TEXT="TEXT";var DB_FLOAT="FLOAT";var DB_NUMERIC="NUMERIC";var VM=Chr(253);var FM=Chr(254);var LF=Chr(10);var CR=Chr(13);var Quote=Chr(34);var DQuote=Chr(34)+Chr(34);var InsertCommands,UpdateCommands,dbExport,dbJSON,dbImport;function FormSlide(sourceForm,targetForm){savethefunction_rvar="";sourceForm.style.webkitTransitionDuration="1000ms";sourceForm.style.webkitTransform="translateX(-"+SysInfo(0)+"px)";var xShow;xShow=ShowAnotherForm(sourceForm,targetForm);setTimeout(xShow,1000);return savethefunction_rvar;}
@@ -123,10 +123,10 @@ sout="";skey=stable+"*"+svalue;rtot=results.rows.length-1;if(_jsCint(rtot)==-1){
 row=results.rows.item(0);spfields=Split(sfields,",");ftot=spfields.length-1;for(fcnt=0;fcnt<=ftot;fcnt++){fstr=spfields[fcnt];fvalue=row[fstr];if(IsNull(fvalue)==True){fvalue="";}
 sout=sout+fvalue+FM;}
 sout=RemoveDelim(sout,FM);SaveSetting(skey,sout);return savethefunction_rvar;}
-function ReadRecordE(transaction,results){savethefunction_rvar="";currentRecord=null;NSB.MsgBox("SQL Error: "+results.code+": "+results.message);return savethefunction_rvar;}
+function ReadRecordE(transaction,results){savethefunction_rvar="";currentRecord=null;console.log(results.code+"-"+results.message);return savethefunction_rvar;}
 function NextAvailableId(frmToShow){savethefunction_rvar="";var stable,sprimarykey,sqlList;SaveSetting("action","new");SaveSetting("form",frmToShow);stable=GetSetting("table");sprimarykey=GetSetting("primarykey");sqlList=[];sqlList[0]=["SELECT MAX("+sprimarykey+") as MaxValue FROM ["+stable+"];",NextAvailableIdH,NextAvailableIdE];Sql(dbObj,sqlList);return savethefunction_rvar;}
 function NextAvailableIdH(transaction,results){savethefunction_rvar="";var sid,sform;sform=GetSetting("form");sid=results.rows.item(0)["MaxValue"];sid=_jsCint(sid)+1;SaveSetting("id",sid);return savethefunction_rvar;}
-function NextAvailableIdE(transaction,results){savethefunction_rvar="";SaveSetting("id","-1");NSB.MsgBox("SQL Error: "+results.code+": "+results.message);return savethefunction_rvar;}
+function NextAvailableIdE(transaction,results){savethefunction_rvar="";SaveSetting("id","-1");console.log(results.code+"-"+results.message);return savethefunction_rvar;}
 function MapSum(mapobj,mapkey,mapitem){var xitem;xitem=mapobj[mapkey];if(IsNull(xitem)==True){mapobj[mapkey]=mapitem;}else{xitem=parseFloat(xitem)+parseFloat(mapitem);mapobj[mapkey]=xitem;}}
 function MapUpdate(mapobj,mapkey,mapitem){var xitem;xitem=mapobj[mapkey];if(IsNull(xitem)==True){mapobj[mapkey]=mapitem;}else{mapobj[mapkey]=mapitem;}}
 function MapSearch(mapobj,keySearch){savethefunction_rvar="";var xitem;xitem=mapobj[keySearch];if(IsNull(xitem)==True){return True;}else{return False;}
