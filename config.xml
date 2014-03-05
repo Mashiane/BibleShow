@@ -3,7 +3,7 @@
 xmlns = "http://www.w3.org/ns/widgets"
 xmlns:gap = "http://phonegap.com/ns/1.0"
 id = "com.nsbasic.BibleShow"
-version = "1.0.92">
+version = "1.0.93">
 
 <name>Bible.Show</name>
 <description>Bible.Show, building your relationship with God Jehovah!</description>
@@ -31,6 +31,5 @@ version = "1.0.92">
 <!-- <preference name="autorotate" value="false" readonly="true"/> -->
 <!-- <preference name="orientation" value="default" > -->
 <preference name="fullscreen" value="true" />
-<preference name="SplashScreenDelay" value="6000" />
-<gap:plugin name="org.apache.cordova.device" />
+<preference name="SplashScreenDelay" value="8000" />
 </widget>
