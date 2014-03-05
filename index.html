@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <title>Bible.Show</title>
 <meta name="generator" content="NSB/AppStudio 4.0.0.0b7$bhnw" />
-<meta name='date' content='2014-02-22 11:48:56.704000' />
-<meta name='version' content='1.0.63' />
+<meta name='date' content='2014-03-05 02:06:58.228000' />
+<meta name='version' content='1.0.68' />
 <meta name='viewport' content='width=device-width, height=device-height, initial-scale=1, minimal-ui', >
 <meta name='apple-mobile-web-app-capable' content='YES' />
 <meta name='mobile-web-app-capable' content='yes' />
@@ -40,10 +40,10 @@
 #biblesL {position:absolute; left:0px; top:0px; width:100%; height:auto }
 
 #biblesT {position: absolute; width:100%; height:40px; left:0px; top:0px;}
+#booksT {position: absolute; width:100%; height:40px; left:0px; top:0px;}
 #booksL_scroller {position: absolute; overflow:hidden; width:35.9375%; height:300px; left:0px; top:0px;}
 #booksL {position:absolute; left:0px; top:0px; width:100%; height:auto }
 
-#booksT {position: absolute; width:100%; height:40px; left:0px; top:0px;}
 #chaptersL_scroller {position: absolute; overflow:hidden; width:34.375%; height:300px; left:118px; top:0px;}
 #chaptersL {position:absolute; left:0px; top:0px; width:100%; height:auto }
 
@@ -56,14 +56,10 @@
 #promisesT {position: absolute; width:100%; height:40px; left:0px; top:0px;}
 #versesT {position: absolute; width:100%; height:40px; left:0px; top:0px;}
 #txtVerses {position:absolute; left:6px; right:auto; top:70px; bottom:auto; height:185px; width:95%}
-#Label12 {position:absolute; left:0px; right:auto; top:48px; bottom:auto; height:20px; width:95%}
+#Label12 {position:absolute; left:5px; right:auto; top:48px; bottom:auto; height:20px; width:95%}
 #Label13 {position:absolute; left:0px; right:auto; top:400px; bottom:auto; height:20px; width:95%}
 #Line1 {position:absolute; left:0px; right:10px; top:378px; bottom:auto; height:5px; width:100%}
 #hAbout {position: absolute; width:100%; height:40px; left:0px; top:0px;}
-#lstFiles_scroller {position: absolute; overflow:hidden; width:100%; height:32px; left:0px; top:0px;}
-#lstFiles {position:absolute; left:0px; top:0px; width:100%; height:auto }
-#lstFiles {left:0px; top:0px;}
-#hdrFiles {position: absolute; width:100%; height:40px; left:0px; top:0px;}
 #promiseL_scroller {position: absolute; overflow:hidden; width:100%; height:300px; left:0px; top:42px;}
 #promiseL {position:absolute; left:0px; top:0px; width:100%; height:auto }
 
@@ -92,15 +88,22 @@ body * {font-family:helvetica}
 <form id="frmAbout" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
 <script src="33.js"></script>
 </form>
-<form id="frmFiles" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
+<form id="frmPromise" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
 <script src="35.js"></script>
 </form>
-<form id="frmPromise" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
-<script src="37.js"></script>
-</form>
 </div>
-<script src="39.js"></script><link href="select.css"rel="stylesheet"><script src="41.js"></script>
+<script src="37.js"></script><link href="select"rel="stylesheet"><script src="39.js"></script>
 <script src="bibleshow.js"></script>
+<script src="AFR.js"></script>
+<script src="IRL.js"></script>
+<script src="HNV.js"></script>
+<script src="CJB.js"></script>
+<script src="XHO.js"></script>
+<script src="NLT.js"></script>
+<script src="NIV.js"></script>
+<script src="KJV.js"></script>
+<script src="GNB.js"></script>
+<script src="AMP.js"></script>
 
 </body>
 </html>

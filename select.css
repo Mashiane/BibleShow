@@ -3,10 +3,11 @@
 .select select{-moz-border-radius:5px;}
 .select select{border: 1px solid #ccc;}
 .select select{text-overflow: ellipsis;white-space: nowrap;}
-
 .bigfield input{font-weight:normal;font-size:14px}
 .smallfield input{font-weight:normal;font-size:14px}
 .ui-header .ui-title, .ui-footer .ui-title {margin-right: 0 !important; margin-left: 0 !important;}
+.ui-icon-bible:after {background-image: url("16.svg");}
+.ui-nosvg .ui-icon-bible:after {background-image: url("16.png");}
 
 #NSB_Progress {
 height:45px;
