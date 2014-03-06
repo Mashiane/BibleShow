@@ -3,7 +3,7 @@
 xmlns = "http://www.w3.org/ns/widgets"
 xmlns:gap = "http://phonegap.com/ns/1.0"
 id = "com.nsbasic.BibleShow"
-version = "1.0.93">
+version = "1.0.95">
 
 <name>Bible.Show</name>
 <description>Bible.Show, building your relationship with God Jehovah!</description>
@@ -29,7 +29,10 @@ version = "1.0.93">
 
 <!-- sample preference specification -->
 <!-- <preference name="autorotate" value="false" readonly="true"/> -->
-<!-- <preference name="orientation" value="default" > -->
+<!-- <preference name="orientation" value="default" > -->
+<gap:plugin name="org.apache.cordova.device" />
 <preference name="fullscreen" value="true" />
-<preference name="SplashScreenDelay" value="8000" />
+<preference name="splash-screen-duration" value="10000" />
+<plugin name="Storage" value="org.apache.cordova.Storage" />
+<plugin name="SplashScreen" value="org.apache.cordova.SplashScreen"/>
 </widget>
