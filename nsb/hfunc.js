@@ -2027,7 +2027,12 @@ NSB.addProperties = function(ctrl, actualCtrl, noHeight) {
 	if(actualCtrl.id==undefined){console.log("NSB.addProperties: ctrl is undefined");console.log(ctrl)};
 	if(typeof ctrl.getAttribute == "undefined") return; //for partly formed select_jqm
     var textBoxCtrl = actualCtrl;
-    if (ctrl.getAttribute('data-nsb-type') === 'TextBox_jqm' || ctrl.getAttribute('data-nsb-type') === 'Date' || ctrl.getAttribute('data-nsb-type') === 'DateTime' || ctrl.getAttribute('data-nsb-type') === 'Month' || ctrl.getAttribute('data-nsb-type') === 'Time') { textBoxCtrl = ctrl; }
+    if (ctrl.getAttribute('data-nsb-type') === 'TextBox_jqm' || 
+        ctrl.getAttribute('data-nsb-type') === 'Date' || 
+        ctrl.getAttribute('data-nsb-type') === 'DateTime' || 
+        ctrl.getAttribute('data-nsb-type') === 'Month' || 
+        ctrl.getAttribute('data-nsb-type') === 'Time') 
+          { textBoxCtrl = ctrl; }
     NSB.defineProperty(ctrl, 'Left', {
         set: function(n) { actualCtrl.style.left = n + (typeof n === 'number' ? 'px' : ''); },
         get: function() { return actualCtrl.offsetLeft; }
@@ -2059,6 +2064,16 @@ NSB.addProperties = function(ctrl, actualCtrl, noHeight) {
         NSB.defineProperty(ctrl, 'text', {
             set: function(n) { textBoxCtrl.value = n; },
             get: function() { return textBoxCtrl.value; }
+        });
+    };
+    if (ctrl.getAttribute('data-nsb-type') === 'Button_jqm') {
+        NSB.defineProperty(ctrl, 'value', {
+            set: function(n) { $(ctrl).text(n) },
+            get: function() { return $(ctrl).text() }
+        });
+        NSB.defineProperty(ctrl, 'text', {
+            set: function(n) { $(ctrl).text(n) },
+            get: function() { return $(ctrl).text() }
         });
     }
     NSB.defineProperty(ctrl, 'Visible', {

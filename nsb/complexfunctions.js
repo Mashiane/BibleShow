@@ -1429,7 +1429,8 @@ NSB.ToolTip_jqm = function(id, popupmsg, datatransition, theme, message, style, 
 NSB.HeaderBar_jqm14 = function(id, title, leftButtonName, leftButtonIcon, leftButtonIconPos, rightButtonName, rightButtonIcon, rightButtonIconPos, html) {
   var name;
   var s="<div id='" + id + "' data-role='header'" + html + ">\n";
-  if (leftButtonName != "" || leftButtonIcon != "false"){
+  if (leftButtonIcon == "false") leftButtonIconPos="none";
+  if (leftButtonName != "" || leftButtonIconPos != "none"){
     name = (leftButtonName == "") ? leftButtonIcon : leftButtonName;
     if (leftButtonIconPos == "notext") leftButtonName="";
     s+="  <div id='"+id+"_left' class='ui-btn ui-btn-left";
@@ -1440,7 +1441,8 @@ NSB.HeaderBar_jqm14 = function(id, title, leftButtonName, leftButtonIcon, leftBu
   }
   if (title != "") s+="  <h1>" + title + "</h1>\n";
    
-  if (rightButtonName != "" || rightButtonIcon != "false"){
+  if (rightButtonIcon == "false") rightButtonIconPos="none";
+  if (rightButtonName != "" || rightButtonIconPos != "none"){
     name = (rightButtonName == "") ? rightButtonIcon : rightButtonName;
     if (rightButtonIconPos == "notext") rightButtonName="";
     s+="  <div id='"+id+"_right' class='ui-btn ui-btn-right";
@@ -1600,7 +1602,8 @@ NSB.List_jqm_init14= function(id, items, scrolling, width, readonly){
       if(!this.readonly){
         if(theme) newLi.setAttribute("data-theme",theme);
         newLi.setAttribute("onclick", (id + ".onclick(" + i + ")"));
-        s="<a id='" + (id+"_"+i) + "' href='#'>";	
+        s="<a id='" + (id+"_"+i) + "' href='#' nsbclick='" 
+        + id + "' nsbvalue="+ i +">";	
         if (imgSrc) s+=" <img src='" + imgSrc + "' class='" + NSB.$(id+'_list').getAttribute("nsb-imageStyle") + "'>";
         s+=Trim(itemName) + "</a>\n";
         newLi.innerHTML+=s;
