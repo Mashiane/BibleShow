@@ -1,6 +1,7 @@
 CACHE MANIFEST
 bibleshow.js
 KJV.js
+ajax-loader.gif
 16.png
 57.png
 114.png
@@ -27,6 +28,6 @@ nsb/hfunc.js
 NETWORK:
 *
 
-# buildtime: 1394141758.33
+# buildtime: 1394144142.47
 
 select.css
